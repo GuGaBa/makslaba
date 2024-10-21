@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Два скрипта: изменение текста и смена темы</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        /* Стиль для абзаца, который будет изменён */
+        
+        #changedParagraph {
+            color: black;
+        }
+        /* Стиль для текстового блока с темами */
+        
+        .text-block {
+            padding: 20px;
+            margin-top: 20px;
+            background-color: white;
+            color: black;
+            border: 1px solid #ccc;
+            transition: all 0.5s ease;
+        }
+        
+        .dark-theme {
+            background-color: black;
+            color: white;
+        }
+        
+        .light-theme {
+            background-color: white;
+            color: black;
+        }
+        
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Пример с двумя функциями</h1>
+
+    <!-- Блок с абзацами -->
+    <p>Первый абзац.</p>
+    <p>Второй абзац</p>
+    <p id="changedParagraph">Это третий абзац, текст и цвет которого изменятся по клику на кнопку.</p>
+
+    <!-- Кнопка для изменения текста и цвета абзаца -->
+    <button onclick="changeTextAndColor()">Изменить текст и цвет абзаца</button>
+
+    <!-- Блок с темами -->
+    <div class="text-block light-theme" id="themeBlock">
+        Это текстовый блок. Нажмите на кнопку ниже, чтобы изменить тему блока.
+    </div>
+
+    <!-- Кнопка для смены темы -->
+    <button onclick="toggleTheme()">Сменить тему</button>
+
+    <script>
+        // Функция для изменения текста и цвета абзаца
+        function changeTextAndColor() {
+            const paragraph = document.getElementById("changedParagraph");
+            paragraph.textContent = "Текст изменён!";
+            paragraph.style.color = "red";
+        }
+
+        // Функция для смены темы блока
+        function toggleTheme() {
+            const block = document.getElementById("themeBlock");
+            block.classList.toggle("dark-theme");
+            block.classList.toggle("light-theme");
+        }
+    </script>
+
+</body>
+
+</html>
